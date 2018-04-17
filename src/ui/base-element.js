@@ -15,8 +15,13 @@ export class BaseElement {
     this.element = $(s);
   }
 
+  enableJS() {
+    componentHandler.upgradeElement(this.element[0]);
+  }
+
   appendElement(el) {
     this.createElement();
     el.append(this.element);
+    this.enableJS();
   }
 }
