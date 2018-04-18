@@ -1,7 +1,7 @@
 export class Vehicle {
-  constructor(license, model, latLong) {
+  constructor(license, model, latLng) {
     this.license = license;
     this.model = model;
-    this.latLong = latLong;
+    this.latLng = latLng;
   }
 }
