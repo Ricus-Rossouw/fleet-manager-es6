@@ -9,19 +9,22 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="node_modules/systemjs/dist/system.js"></script>
   <script src="node_modules/material-design-lite/material.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSZiFA4ZzNcbGWq0vLUfbvUky6fz4cKyI&callback=googleMapsCallback" async defer></script>
 </head>
 <body>
 
   <script>
-    SystemJS.config({
-      paths: { 'jquery':'./node_modules/jquery/dist/jquery.js' },
-      map: {
-        'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
-        'systemjs-babel-build': './node_modules/systemjs-plugin-babel/systemjs-babel-browser.js'
-      },
-      transpiler: 'plugin-babel'
-    });
-    System.import('src/app.js');
+    function googleMapsCallback() {
+      SystemJS.config({
+        paths: { 'jquery':'./node_modules/jquery/dist/jquery.js' },
+        map: {
+          'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
+          'systemjs-babel-build': './node_modules/systemjs-plugin-babel/systemjs-babel-browser.js'
+        },
+        transpiler: 'plugin-babel'
+      });
+      System.import('src/app.js');
+    }
   </script>
 </body>
 </html>

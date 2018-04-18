@@ -1,8 +1,8 @@
 import { Vehicle } from './vehicle.js';
 
 export class Car extends Vehicle {
-  constructor(license, model, latLong) {
-    super(license, model, latLong);
+  constructor(license, model, latLng) {
+    super(license, model, latLng);
     this.make = null;
     this.miles = null;
   }
