@@ -8,7 +8,7 @@ import { fleet } from './fleet-data.js';
 import { FleetDataService } from './services/fleet-data-service.js';
 
 // UI Classes
-import { TitleBar } from './ui/title-bar.js';
+import { Menu } from './ui/menu.js';
 import { Button } from './ui/button.js';
 import { Image } from './ui/image.js';
 import { DataTable } from './ui/data-table.js';

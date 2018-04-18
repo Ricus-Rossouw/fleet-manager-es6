@@ -1,6 +1,6 @@
 import { BaseElement } from './base-element.js';
 
-export class TitleBar extends BaseElement {
+export class Menu extends BaseElement {
   constructor(title) {
     super();
     this.title = title;
