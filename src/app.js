@@ -2,21 +2,20 @@
 import $ from 'jquery';
 
 // Data Classes
-import { Car } from './classes/car.js';
-import { Drone } from './classes/drone.js';
 import { fleet } from './fleet-data.js';
 import { FleetDataService } from './services/fleet-data-service.js';
+import { ApplicationBase } from './framework/application-base.js';
 
-// UI Classes
-import { Menu } from './ui/menu.js';
-import { Button } from './ui/button.js';
-import { Image } from './ui/image.js';
-import { DataTable } from './ui/data-table.js';
-import { GoogleMap } from './ui/google-map.js';
+export class App extends ApplicationBase {
 
-let headers = 'license model make miles'.split(' ');
-let dataService = new FleetDataService();
-dataService.loadData(fleet);
-let centerOfMap = { lat: 40.783661, lng: -73.965883 };
-let map = new GoogleMap(centerOfMap, dataService.cars);
-map.appendElement($('body'));
+  constructor() {
+    super('Fleet Manager');
+    this.dataService = new FleetDataService();
+    this.dataService.loadData(fleet);
+  }
+
+}
+
+export let application = new App();
+
+application.start($('body'));
