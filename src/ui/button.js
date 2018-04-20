@@ -13,4 +13,8 @@ export class Button extends BaseElement {
       </button>
     `;
   }
+
+  setStyleString(style) {
+    this.styleString = style;
+  }
 }
