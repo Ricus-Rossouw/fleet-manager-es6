@@ -1,4 +1,4 @@
-import { BaseElement } from './base-element.js';
+import { BaseElement } from "./base-element.js";
 
 export class Menu extends BaseElement {
   constructor(title) {
@@ -17,31 +17,31 @@ export class Menu extends BaseElement {
   getElementString() {
     let links = '';
     for (let link of this.links) {
-      links += `<a class="mdl-navigation__link" href="${link.href}">${link.title}</a>\n`;
+      links += `<a class="mdl-navigation__link">${link.title}</a>\n`;
     }
 
     return `
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
-          <div class="mdl-layout__header-row">
+            <div class="mdl-layout__header-row">
             <!-- Title -->
             <span class="mdl-layout-title">${this.title}</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
-              ${links}
+                ${links}
             </nav>
-          </div>
+            </div>
         </header>
         <div class="mdl-layout__drawer">
-          <span class="mdl-layout-title">${this.title}</span>
-          <nav class="mdl-navigation">
-            ${links}
-          </nav>
+            <span class="mdl-layout-title">${this.title}</span>
+            <nav class="mdl-navigation">
+                ${links}
+            </nav>
         </div>
         <main class="mdl-layout__content">
-          <div class="page-content"><!-- Your content goes here --></div>
+            <div class="page-content">test<!-- Your content goes here --></div>
         </main>
       </div>
     `;

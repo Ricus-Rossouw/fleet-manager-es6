@@ -1,22 +1,31 @@
-// Libraries
 import $ from 'jquery';
-
-// Data Classes
 import { Car } from './classes/car.js';
 import { Drone } from './classes/drone.js';
 import { fleet } from './fleet-data.js';
 import { FleetDataService } from './services/fleet-data-service.js';
-
-// UI Classes
-import { Menu } from './ui/menu.js';
 import { Button } from './ui/button.js';
 import { Image } from './ui/image.js';
-import { DataTable } from './ui/data-table.js';
-import { GoogleMap } from './ui/google-map.js';
+import { Menu } from './ui/menu.js';
 
-let headers = 'license model make miles'.split(' ');
-let dataService = new FleetDataService();
-dataService.loadData(fleet);
-let centerOfMap = { lat: 40.783661, lng: -73.965883 };
-let map = new GoogleMap(centerOfMap, dataService.cars);
-map.appendElement($('body'));
+import { ApplicationBase } from './framework/application-base.js';
+import { HomePage } from './pages/home-page.js';
+import { CarsPage } from './pages/cars-page.js';
+import { DronesPage } from './pages/drones-page.js';
+import { MapPage } from './pages/map-page.js';
+
+export class App extends ApplicationBase {
+  constructor() {
+    super('Fleet Manager');
+
+    this.dataService = new FleetDataService();
+    this.dataService.loadData(fleet);
+
+    this.addRoute('Home', new HomePage(), true);
+    this.addRoute('Cars', new CarsPage());
+    this.addRoute('Drones', new DronesPage());
+    this.addRoute('Map', new MapPage());
+  }
+}
+
+export let application = new App();
+application.start($('body'));

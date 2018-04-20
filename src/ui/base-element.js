@@ -19,7 +19,7 @@ export class BaseElement {
     componentHandler.upgradeElement(this.element[0]);
   }
 
-  appendElement(el) {
+  appendToElement(el) {
     this.createElement();
     el.append(this.element);
     this.enableJS();
